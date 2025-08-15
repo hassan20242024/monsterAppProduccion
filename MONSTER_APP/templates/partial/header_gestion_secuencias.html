@@ -1,0 +1,51 @@
+
+<div class="container-fluid">
+    
+    <div class="pagetitle"><br>
+      <h4 class="">Gestión de Secuencias</h4>
+    </div>
+    <div class="">
+        <ul class="nav nav-tabs">
+            <a href="{% url 'registro_inicial_de_secuencias' %}" type="" class="btn">Registro inicial</a><br>
+            <a href="{% url 'proceso_secuencias_en_curso' %}" type="" class="btn">Secuencias</a><br>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-dark" data-toggle="dropdown" href="#" role="button" 
+                 aria-haspopup="true" aria-expanded="false">General</a>
+              <div class="dropdown-menu">
+                 <a class="dropdown-item" href="{% url 'secuencias_invalidadas' %}">Secuencias Invalidas</a>
+            </li>
+          </ul>
+    </div>
+  </div>
+
+   <!--Script para barra de búsqueda-->
+   <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+    <!--Script para barra de búsqueda-->
+
+      <!-- Datatable-->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+      <script src="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.3/b-3.0.1/b-html5-3.0.1/date-1.5.2/sl-2.0.0/datatables.min.js"></script>
+      
+      <!-- Datatable-->
+      <link href="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.3/b-3.0.1/b-html5-3.0.1/date-1.5.2/sl-2.0.0/datatables.min.css" rel="stylesheet">
+  
+
+
+
+
+
+
+
+ 
+
+ 

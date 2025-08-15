@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load bootstrap5 static %}
+
+{% block title %}Inicia Sesión{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}" />
+
+  <!-- AdminLTE -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}" />
+</head>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #011525cc, #052545);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .login-wrapper {
+    width: 380px;
+    max-width: 100%;
+  }
+
+  /* Logo + texto principal */
+  .brand-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.9rem;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background: linear-gradient(90deg, #00ffd5, #bf00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(127, 0, 255, 0.2);
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+
+.logo-inline {
+  width: 94px;
+  height: 94px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin: 0 -9px;
+  filter: drop-shadow(0 0 5px rgba(127, 0, 255, 0.4));
+}
+  /* Slogan */
+  .brand-slogan {
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+    color: #f2f3fff8;
+    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0.85;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px 25px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.352);
+  }
+
+  .card-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-control {
+    border-radius: 8px;
+  }
+
+  .btn-submit {
+    background: linear-gradient(90deg, #a100ff, #ff00c8da);
+    color: #fff;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    transition: filter 0.3s ease;
+  }
+
+  .btn-submit:hover {
+    filter: brightness(1.1);
+  }
+</style>
+
+<div class="login-wrapper">
+  <!-- Logo y marca -->
+  <div class="brand-header">
+    Monster
+    <img src="{% static 'dist/img/logo.png' %}" alt="Logo" class="logo-inline">
+    pp
+  </div>
+  <p class="brand-slogan">By Hassan’Software</p>
+
+  <!-- Formulario -->
+  <div class="card">
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form layout="" %}
+        <button type="submit" class="btn-submit">Iniciar sesión</button>
+      </form>
+    </div>
+  </div>
+</div>
+</html>
+{% endblock %}
